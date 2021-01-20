@@ -28,6 +28,55 @@
  *     
  */
 
+class Personaje {
+    constructor(nombre, raza, puntosVida, caracteristicas){
+        this.nombre = nombre
+        this.raza = raza
+        this.puntosVida = puntosVida
+        this.caracteristicas = caracteristicas
+        this.experiencia = 0
+    }
+
+    ataqueFisico(){
+        console.log("Hace un ataque físico!")
+    }
+}
+class Clerigo extends Personaje {
+    constructor(nombre, raza, vida, caracteristicas){
+        const caracteristicas_modificadas = {
+            fuerza: caracteristicas.fuerza - 1,
+            agilidad: caracteristicas.agilidad,
+            resistencia: caracteristicas.resistencia,
+            inteligencia: caracteristicas.inteligencia + 1
+        }
+        super(nombre, raza, vida, caracteristicas_modificadas)
+    }
+
+    curar(personaje){
+        if (!personaje) {
+            this.vida = this.vida + this.inteligencia
+        } else {
+            personaje.vida = personaje.vida + this.inteligencia
+        }
+    }
+}
+
+class Guerrero extends Personaje {
+    constructor(nombre, raza, vida, caracteristicas) {
+        const caracteristicas_modificadas = {
+            fuerza: caracteristicas.fuerza + 1,
+            agilidad: caracteristicas.agilidad,
+            resistencia: caracteristicas.resistencia,
+            inteligencia: caracteristicas.inteligencia - 1
+        }
+        super(nombre, raza, vida, caracteristicas_modificadas)
+    }
+
+    mamporro(){
+        console.log(`Asesta un golpe de ${this.caracteristicas.fuerza}`)
+    }
+}
+
 let caracteristicas = {
     fuerza: 12,
     agilidad: 15,

@@ -25,7 +25,21 @@
 
 
 class Personaje {
+    constructor(nombre, raza, puntosVida, caracteristicas){
+        this.nombre = nombre
+        this.raza = raza
+        this.puntosVida = puntosVida
+        this.caracteristicas = caracteristicas/*{
+            fuerza,
+            agilidad,
+            resistencia,
+            inteligencia
+        }*/
+    }
 
+    ataqueFisico(){
+        console.log("Hace un ataque físico!")
+    }
 }
 
 let caracteristicas = {
